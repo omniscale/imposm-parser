@@ -8,8 +8,6 @@ try:
 except ImportError:
     setproctitle = lambda x: None
 
-from marshal import dumps
-
 class PBFParserProcess(PBFParser, multiprocessing.Process):
     def __init__(self, pos_queue, *args, **kw):
         self.pos_queue = pos_queue
@@ -34,13 +32,13 @@ class PBFMultiProcParser(object):
     relations_tag_filter = None
     
     def __init__(self, pool_size, nodes_queue=None, ways_queue=None,
-        relations_queue=None, coords_queue=None):
+        relations_queue=None, coords_queue=None, marshal_elem_data=False):
         self.pool_size = pool_size
         self.nodes_callback = nodes_queue.put if nodes_queue else None
         self.ways_callback = ways_queue.put if ways_queue else None
         self.relations_callback = relations_queue.put if relations_queue else None
         self.coords_callback = coords_queue.put if coords_queue else None
-    
+        self.marshal = marshal_elem_data
     def parse(self, filename):
         pos_queue = multiprocessing.JoinableQueue(32)
         pool = []
@@ -51,6 +49,7 @@ class PBFMultiProcParser(object):
                 nodes_tag_filter=self.nodes_tag_filter,
                 ways_tag_filter=self.ways_tag_filter,
                 relations_tag_filter=self.relations_tag_filter,
+                marshal=self.marshal
             )
             pool.append(proc)
             proc.start()

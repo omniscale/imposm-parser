@@ -11,6 +11,8 @@ _MEMBERTYPE = {0 : 'node',
                2 : 'relation'}
 
 
+from marshal import dumps
+
 class PBFParser(object):
     """
     OSM PBF parser.

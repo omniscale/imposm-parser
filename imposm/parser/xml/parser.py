@@ -1,10 +1,12 @@
 from __future__ import with_statement
 from .util import log_file_on_exception, iterparse
 
+from marshal import dumps
+
 class XMLParser(object):
     def __init__(self, nodes_callback=None, ways_callback=None,
         relations_callback=None, coords_callback=None, nodes_tag_filter=None,
-        ways_tag_filter=None, relations_tag_filter=None):
+        ways_tag_filter=None, relations_tag_filter=None, marshal_elem_data=False):
         self.nodes_callback = nodes_callback
         self.ways_callback = ways_callback
         self.relations_callback = relations_callback
@@ -12,7 +14,8 @@ class XMLParser(object):
         self.nodes_tag_filter = nodes_tag_filter
         self.ways_tag_filter = ways_tag_filter
         self.relations_tag_filter = relations_tag_filter
-        
+        self.marshal_elem_data = marshal_elem_data
+    
     def parse(self, xml):
         with log_file_on_exception(xml):
             coords = []
@@ -36,7 +39,10 @@ class XMLParser(object):
                     if self.nodes_tag_filter:
                         self.nodes_tag_filter(tags)
                     if tags and self.nodes_callback:
-                        nodes.append((osmid, tags, (x, y)))
+                        if self.marshal_elem_data:
+                            nodes.append((osmid, dumps((tags, (x, y)), 2)))
+                        else:
+                            nodes.append((osmid, tags, (x, y)))
                     tags = {}
                 elif elem.tag == 'nd':
                     refs.append(int(elem.attrib['ref']))
@@ -47,7 +53,10 @@ class XMLParser(object):
                     if self.ways_tag_filter:
                         self.ways_tag_filter(tags)
                     if self.ways_callback:
-                        ways.append((osm_id, tags, [refs]))
+                        if self.marshal_elem_data:
+                            ways.append((osm_id, dumps((tags, [refs]), 2)))
+                        else:
+                            ways.append((osm_id, tags, [refs]))
                     refs = []
                     tags = {}
                 elif elem.tag == 'relation':
@@ -55,7 +64,10 @@ class XMLParser(object):
                     if self.relations_tag_filter:
                         self.relations_tag_filter(tags)
                     if tags and self.relations_callback:
-                        relations.append((osm_id, tags, members))
+                        if self.marshal_elem_data:
+                            relations.append((osm_id, dumps((tags, members), 2)))
+                        else:
+                            relations.append((osm_id, tags, members))
                     members = []
                     tags = {}
             

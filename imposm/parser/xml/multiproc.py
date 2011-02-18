@@ -3,7 +3,7 @@ import mmap
 import multiprocessing
 from Queue import Empty
 
-from pyosmparser.xml.parser import XMLParser
+from imposm.parser.xml.parser import XMLParser
 from setproctitle import setproctitle
 
 KiB = 1024
@@ -63,9 +63,8 @@ class XMLMultiProcParser(object):
     ways_tag_filter = None
     relations_tag_filter = None
     
-    def __init__(self, stream, pool_size, nodes_queue=None, ways_queue=None,
-        relations_queue=None, coords_queue=None):
-        self.stream = stream
+    def __init__(self, pool_size, nodes_queue=None, ways_queue=None,
+        relations_queue=None, coords_queue=None, marshal_elem_data=False):
         self.pool_size = pool_size
         self.pool = []
         self.nodes_callback = nodes_queue.put if nodes_queue else None
@@ -75,22 +74,24 @@ class XMLMultiProcParser(object):
         xml_chunk_size=READ_SIZE
         self.mmap_pool = MMapPool(pool_size*8, xml_chunk_size*8)
         self.mmap_queue = multiprocessing.JoinableQueue(8)
+        self.marshal_elem_data = marshal_elem_data
         
-    def start(self):
+    def parse(self, stream):
         assert not self.pool
         
         for _ in xrange(self.pool_size):
             proc = XMLParserProcess(self.mmap_pool, self.mmap_queue, nodes_callback=self.nodes_callback,
                 coords_callback=self.coords_callback, ways_callback=self.ways_callback,
                 relations_callback=self.relations_callback,
-                # nodes_tag_filter=self.nodes_tag_filter,
-                # ways_tag_filter=self.ways_tag_filter,
-                # relations_tag_filter=self.relations_tag_filter,
+                nodes_tag_filter=self.nodes_tag_filter,
+                ways_tag_filter=self.ways_tag_filter,
+                relations_tag_filter=self.relations_tag_filter,
+                marshal_elem_data=self.marshal_elem_data,
             )
             self.pool.append(proc)
             proc.start()
         
-        chunker = XMLChunker(self.stream, self.mmap_pool, xml_chunk_size=READ_SIZE)
+        chunker = XMLChunker(stream, self.mmap_pool, xml_chunk_size=READ_SIZE)
         chunker.read(self.mmap_queue, coords_callback=self.coords_callback)
         
         self.mmap_queue.join()
@@ -177,8 +178,9 @@ class XMLChunker(object):
         stream.write("<osm xmlns:xapi='http://www.informationfreeway.org/xapi/0.6'>")
         return stream
 
-    def _finished_xml_outstream(self, stream):
-        stream.write('</osm>\n')
+    def _finished_xml_outstream(self, last_line, stream):
+        if '</osm' not in last_line:
+            stream.write('</osm>\n')
         return self.current_mmap_idx, stream.tell()
 
     def read(self, mmaps_queue, coords_callback=None):
@@ -192,6 +194,7 @@ class XMLChunker(object):
                                           'lon="([-0-9.]+)".*/>$').match
         xml_nodes.write(self._last_line)
         split = False
+        line = ''
         for line in self.stream:
             if coords_callback:
                 coord_node_match = coord_node_re_match(line)
@@ -207,15 +210,15 @@ class XMLChunker(object):
                 xml_nodes.write(line)
             if split:
                 if line.lstrip().startswith('</') or coord_node_match:
-                    mmaps_queue.put(self._finished_xml_outstream(xml_nodes))
+                    mmaps_queue.put(self._finished_xml_outstream(line, xml_nodes))
                     xml_nodes = self._new_xml_outstream()
                     split = False
             elif xml_nodes.tell() > self.size:
                 split = True
         if coords_callback:
             coords_callback(coords)
-
-        mmaps_queue.put(self._finished_xml_outstream(xml_nodes))
+        
+        mmaps_queue.put(self._finished_xml_outstream(line, xml_nodes))
 
 if __name__ == '__main__':
     import sys
