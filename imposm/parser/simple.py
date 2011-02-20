@@ -8,7 +8,6 @@ class OSMParser(object):
     """
     High-level OSM parser.
     
-    
     :param concurrency:
         number of parser processes to start. Defaults to the number of CPUs.
     :param xxx_callback: 
@@ -117,7 +116,7 @@ class OSMParser(object):
                 except Empty:
                     pass
             if not processed:
-                # wait a ms if all queues where empty
-                # to get the parser a chance to fill them up
+                # wait a ms if all queues were empty
+                # to give the parser a chance to fill them up
                 time.sleep(0.001)
         proc.join()

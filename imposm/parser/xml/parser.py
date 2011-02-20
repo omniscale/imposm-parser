@@ -54,9 +54,9 @@ class XMLParser(object):
                         self.ways_tag_filter(tags)
                     if self.ways_callback:
                         if self.marshal_elem_data:
-                            ways.append((osm_id, dumps((tags, [refs]), 2)))
+                            ways.append((osm_id, dumps((tags, refs), 2)))
                         else:
-                            ways.append((osm_id, tags, [refs]))
+                            ways.append((osm_id, tags, refs))
                     refs = []
                     tags = {}
                 elif elem.tag == 'relation':

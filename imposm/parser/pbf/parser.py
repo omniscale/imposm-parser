@@ -217,7 +217,7 @@ class PrimitiveBlockParser(object):
                     for delta in delta_refs:
                         ref += delta
                         refs.append(ref)
-                    yield (way.id, tags, [refs])
+                    yield (way.id, tags, refs)
     
     def relations(self):
         """
