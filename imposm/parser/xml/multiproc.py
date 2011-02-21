@@ -1,10 +1,11 @@
-import re
 import mmap
 import multiprocessing
+import re
+
 from Queue import Empty
 
 from imposm.parser.xml.parser import XMLParser
-from setproctitle import setproctitle
+from imposm.parser.util import setproctitle
 
 KiB = 1024
 MiB = 1024*KiB

@@ -1,9 +1,11 @@
 from __future__ import with_statement
 
+import multiprocessing
 import sys
 import time
-import multiprocessing
+
 from Queue import Empty
+
 from imposm.parser.util import default_concurrency, fileinput
 
 class OSMParser(object):

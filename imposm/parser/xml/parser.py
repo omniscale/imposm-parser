@@ -1,7 +1,8 @@
 from __future__ import with_statement
-from imposm.parser.xml.util import log_file_on_exception, iterparse
 
 from marshal import dumps
+
+from imposm.parser.xml.util import log_file_on_exception, iterparse
 
 class XMLParser(object):
     def __init__(self, nodes_callback=None, ways_callback=None,

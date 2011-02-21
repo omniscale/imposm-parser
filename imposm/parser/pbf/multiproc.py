@@ -1,12 +1,7 @@
-from imposm.parser.pbf.parser import PBFFile, PBFParser
-
 import multiprocessing
 
-try:
-    from setproctitle import setproctitle
-    setproctitle
-except ImportError:
-    setproctitle = lambda x: None
+from imposm.parser.pbf.parser import PBFFile, PBFParser
+from imposm.parser.util import setproctitle
 
 class PBFParserProcess(PBFParser, multiprocessing.Process):
     def __init__(self, pos_queue, *args, **kw):

@@ -2,9 +2,14 @@ import contextlib
 import multiprocessing
 import subprocess
 
+try:
+    from setproctitle import setproctitle
+    setproctitle
+except ImportError:
+    setproctitle = lambda x: None
+
 def default_concurrency():
     return multiprocessing.cpu_count()
-
 
 def bzip_reader(filename):
     p = subprocess.Popen(['bunzip2', '-c', filename], bufsize=-1, stdout=subprocess.PIPE)

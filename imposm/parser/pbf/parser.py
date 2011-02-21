@@ -1,9 +1,12 @@
 from __future__ import with_statement
 
-from imposm.parser.pbf import OSMPBF
-import zlib
-import sys
 import struct
+import sys
+import zlib
+
+from marshal import dumps
+
+from imposm.parser.pbf import OSMPBF
 
 SUPPORTED_FEATURES = set(['OsmSchema-V0.6', 'DenseNodes'])
 
@@ -13,7 +16,6 @@ _MEMBERTYPE = {0 : 'node',
                2 : 'relation'}
 
 
-from marshal import dumps
 
 class PBFParser(object):
     """
