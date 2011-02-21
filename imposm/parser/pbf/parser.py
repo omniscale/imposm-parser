@@ -115,7 +115,11 @@ class PBFParser(object):
                 relations = []
         self.relations_callback(relations)
 
-
+def decoded_stringtable(stringtable):
+    result = []
+    for s in stringtable:
+        result.append(s.decode('utf-8'))
+    return result
 
 class PrimitiveBlockParser(object):
     """
@@ -135,7 +139,7 @@ class PrimitiveBlockParser(object):
         self.primitive_block = OSMPBF.PrimitiveBlock()
         self.primitive_block.ParseFromString(data)
         self.primitivegroup = self.primitive_block.primitivegroup
-        self.stringtable = self.primitive_block.stringtable.s
+        self.stringtable = decoded_stringtable(self.primitive_block.stringtable.s)
     
     def __repr__(self):
         return '<PrimitiveBlockParser %r>' % (self.pos, )
