@@ -1,4 +1,4 @@
-from .parser import PBFFile, PBFParser
+from imposm.parser.pbf.parser import PBFFile, PBFParser
 
 import multiprocessing
 

@@ -1,4 +1,6 @@
-from . import OSMPBF
+from __future__ import with_statement
+
+from imposm.parser.pbf import OSMPBF
 import zlib
 import sys
 import struct

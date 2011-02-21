@@ -1,5 +1,5 @@
 from __future__ import with_statement
-from .util import log_file_on_exception, iterparse
+from imposm.parser.xml.util import log_file_on_exception, iterparse
 
 from marshal import dumps
 
