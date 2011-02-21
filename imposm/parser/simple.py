@@ -6,7 +6,7 @@ import time
 
 from Queue import Empty
 
-from imposm.parser.util import default_concurrency, fileinput
+from imposm.parser.util import default_concurrency, fileinput, setproctitle
 
 class OSMParser(object):
     """
@@ -83,6 +83,7 @@ class OSMParser(object):
                                              self.relations_callback)
 
         def parse_it():
+            setproctitle('imposm parser')
             queues = dict([(type, q) for type, (q, c) in queues_callbacks.items()])
             
             parser = parser_class(self.concurrency,

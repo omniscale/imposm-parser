@@ -10,7 +10,7 @@ class PBFParserProcess(PBFParser, multiprocessing.Process):
         multiprocessing.Process.__init__(self)
     
     def run(self):
-        setproctitle('OSM PBF Parser')
+        setproctitle('imposm pbf parser')
         while True:
             pos = self.pos_queue.get()
             if pos is None:

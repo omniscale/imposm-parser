@@ -44,9 +44,9 @@ class XMLParserProcess(XMLParser, multiprocessing.Process):
         XMLParser.__init__(self, *args, **kw)
         multiprocessing.Process.__init__(self)
         self.daemon = True
-        setproctitle('imposm xml parser')
 
     def run(self):
+        setproctitle('imposm xml parser')
         while True:
             mmap_idx, size = self.mmap_queue.get()
             if mmap_idx is None:
