@@ -1,7 +1,7 @@
 #include <Python.h>
 #include <string>
 #include "structmember.h"
-#include "osm_unsorted.pb.h"
+#include "osm.pb.h"
 
 
 static PyObject *
@@ -120,7 +120,7 @@ fastpb_convert14(int value)
   {
       std::string serialized(PyString_AsString(value), PyString_Size(value));
       self->protobuf->ParseFromString(serialized);
-      Py_RETURN_NONE
+      Py_RETURN_NONE;
   }
 
 
@@ -132,7 +132,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_raw()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -181,7 +181,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_raw_size()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -233,7 +233,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_zlib_data()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -282,7 +282,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_lzma_data()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -331,7 +331,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_obsolete_bzip2_data()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -576,7 +576,7 @@ fastpb_convert14(int value)
   {
       std::string serialized(PyString_AsString(value), PyString_Size(value));
       self->protobuf->ParseFromString(serialized);
-      Py_RETURN_NONE
+      Py_RETURN_NONE;
   }
 
 
@@ -588,7 +588,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_type()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -641,7 +641,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_indexdata()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -690,7 +690,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_datasize()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -908,7 +908,7 @@ fastpb_convert14(int value)
   {
       std::string serialized(PyString_AsString(value), PyString_Size(value));
       self->protobuf->ParseFromString(serialized);
-      Py_RETURN_NONE
+      Py_RETURN_NONE;
   }
 
 
@@ -920,7 +920,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_left()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -974,7 +974,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_right()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -1028,7 +1028,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_top()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -1082,7 +1082,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_bottom()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -1317,7 +1317,7 @@ fastpb_convert14(int value)
   {
       std::string serialized(PyString_AsString(value), PyString_Size(value));
       self->protobuf->ParseFromString(serialized);
-      Py_RETURN_NONE
+      Py_RETURN_NONE;
   }
 
 
@@ -1338,7 +1338,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_bbox()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -1516,7 +1516,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_writingprogram()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -1569,7 +1569,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_source()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -1818,7 +1818,7 @@ fastpb_convert14(int value)
   {
       std::string serialized(PyString_AsString(value), PyString_Size(value));
       self->protobuf->ParseFromString(serialized);
-      Py_RETURN_NONE
+      Py_RETURN_NONE;
   }
 
 
@@ -2028,7 +2028,7 @@ fastpb_convert14(int value)
   {
       std::string serialized(PyString_AsString(value), PyString_Size(value));
       self->protobuf->ParseFromString(serialized);
-      Py_RETURN_NONE
+      Py_RETURN_NONE;
   }
 
 
@@ -2040,7 +2040,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_version()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -2092,7 +2092,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_timestamp()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -2146,7 +2146,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_changeset()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -2200,7 +2200,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_uid()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -2252,7 +2252,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_user_sid()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -2502,7 +2502,7 @@ fastpb_convert14(int value)
   {
       std::string serialized(PyString_AsString(value), PyString_Size(value));
       self->protobuf->ParseFromString(serialized);
-      Py_RETURN_NONE
+      Py_RETURN_NONE;
   }
 
 
@@ -3039,7 +3039,7 @@ fastpb_convert14(int value)
   {
       std::string serialized(PyString_AsString(value), PyString_Size(value));
       self->protobuf->ParseFromString(serialized);
-      Py_RETURN_NONE
+      Py_RETURN_NONE;
   }
 
 
@@ -3051,7 +3051,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_id()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -3241,7 +3241,7 @@ fastpb_convert14(int value)
   {
       std::string serialized(PyString_AsString(value), PyString_Size(value));
       self->protobuf->ParseFromString(serialized);
-      Py_RETURN_NONE
+      Py_RETURN_NONE;
   }
 
 
@@ -3253,7 +3253,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_id()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -3450,7 +3450,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_info()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -3496,7 +3496,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_lat()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -3550,7 +3550,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_lon()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -3815,7 +3815,7 @@ fastpb_convert14(int value)
   {
       std::string serialized(PyString_AsString(value), PyString_Size(value));
       self->protobuf->ParseFromString(serialized);
-      Py_RETURN_NONE
+      Py_RETURN_NONE;
   }
 
 
@@ -3903,7 +3903,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_denseinfo()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -4344,7 +4344,7 @@ fastpb_convert14(int value)
   {
       std::string serialized(PyString_AsString(value), PyString_Size(value));
       self->protobuf->ParseFromString(serialized);
-      Py_RETURN_NONE
+      Py_RETURN_NONE;
   }
 
 
@@ -4356,7 +4356,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_id()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -4553,7 +4553,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_info()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -4862,7 +4862,7 @@ fastpb_convert14(int value)
   {
       std::string serialized(PyString_AsString(value), PyString_Size(value));
       self->protobuf->ParseFromString(serialized);
-      Py_RETURN_NONE
+      Py_RETURN_NONE;
   }
 
 
@@ -4874,7 +4874,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_id()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -5071,7 +5071,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_info()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -5541,7 +5541,7 @@ fastpb_convert14(int value)
   {
       std::string serialized(PyString_AsString(value), PyString_Size(value));
       self->protobuf->ParseFromString(serialized);
-      Py_RETURN_NONE
+      Py_RETURN_NONE;
   }
 
 
@@ -5630,7 +5630,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_dense()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -6076,7 +6076,7 @@ fastpb_convert14(int value)
   {
       std::string serialized(PyString_AsString(value), PyString_Size(value));
       self->protobuf->ParseFromString(serialized);
-      Py_RETURN_NONE
+      Py_RETURN_NONE;
   }
 
 
@@ -6097,7 +6097,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_stringtable()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -6211,7 +6211,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_granularity()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -6263,7 +6263,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_lat_offset()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -6317,7 +6317,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_lon_offset()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
@@ -6371,7 +6371,7 @@ fastpb_convert14(int value)
     {
         
           if (! self->protobuf->has_date_granularity()) {
-            Py_RETURN_NONE
+            Py_RETURN_NONE;
           }
 
           return
