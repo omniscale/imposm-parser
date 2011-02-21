@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version="0.6" generator="pbf2osm">
+	<node id="1" lat="50" lon="10" version="1" changeset="1" user="testbot" uid="1" timestamp="2011-12-16T13:24:15Z"/>
+	<node id="2" lat="51" lon="10" version="1" changeset="1" user="testbot" uid="1" timestamp="2011-12-16T13:24:15Z">
+		<tag k="created_by" v="hand" />
+		<tag k="name" v="test" />
+	</node>
+	<way id="3" version="3" changeset="5" uid="2" user="testbot" timestamp="2010-07-16T17:36:18Z">
+		<nd ref="1"/>
+		<nd ref="2"/>
+		<tag k="highway" v="primary" />
+	</way>
+	<relation id="4" version="2" changeset="4" uid="1" user="testbot" timestamp="2010-05-20T19:38:47Z">
+		<member type="way" ref="123" role="outer"/>
+		<member type="way" ref="124" role="inner"/>
+		<tag k="name" v="Üµlåû†é" />
+	</relation>
+</osm>
