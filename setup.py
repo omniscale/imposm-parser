@@ -30,15 +30,27 @@ class build_ext_with_protpbuf(build_ext):
 
 setup(
     name='imposm.parser',
-    version="0.1.0",
-    description='Fast OSM XML/PBF reader.',
-    #long_description=open('README.txt').read(),
+    version="1.0.0",
+    description='Fast and easy OpenStreetMap XML/PBF parser.',
+    long_description=open('README').read(),
     author='Oliver Tonnhofer',
     author_email='olt@omniscale.de',
-    #url='http://mapproxy.org',
-    #license='GNU Affero General Public License v3 (AGPLv3)',
+    url='http://dev.omniscale.net/imposm_parser/',
+    license='Apache Software License 2.0',
     packages=find_packages(),
     namespace_packages = ['imposm'],
+    classifiers=[
+        "Development Status :: 4 - Beta",
+        "License :: OSI Approved :: Apache Software License",
+        "Operating System :: OS Independent",
+        "Programming Language :: C",
+        "Programming Language :: C++",
+        "Programming Language :: Python :: 2.5",
+        "Programming Language :: Python :: 2.6",
+        "Programming Language :: Python :: 2.7",
+        "Topic :: Software Development :: Libraries"
+        "Topic :: Scientific/Engineering :: GIS",
+    ],
     ext_modules=[
         Extension("imposm.parser.pbf.OSMPBF",
             ["imposm/parser/pbf/osm.cc", "imposm/parser/pbf/osm.pb.cc"], libraries=['protobuf']),
