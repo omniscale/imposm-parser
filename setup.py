@@ -1,4 +1,5 @@
 import errno
+import platform
 from setuptools import setup, Extension, find_packages
 from setuptools.command.build_ext import build_ext
 from distutils.errors import DistutilsPlatformError
@@ -28,6 +29,11 @@ class build_ext_with_protpbuf(build_ext):
                 "CPP files with protoc.")
         build_ext.run(self)
 
+
+install_requires = []
+if platform.python_version_tuple() < ('2', '6'):
+    install_requires.append('multiprocessing>=2.6')
+
 setup(
     name='imposm.parser',
     version="1.0.0",
@@ -41,6 +47,7 @@ setup(
     namespace_packages = ['imposm'],
     include_package_data=True,
     package_data = {'': ['*.xml', '*.osm', '*.osm.bz2']},
+    install_requires=install_requires,
     classifiers=[
         "Development Status :: 4 - Beta",
         "License :: OSI Approved :: Apache Software License",

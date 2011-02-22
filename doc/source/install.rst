@@ -4,7 +4,7 @@
 Requirements
 ------------
 
-``imposm.parser`` runs with Python 2.5, 2.6 and 2.7. You need the install the `multiprocessing <http://pypi.python.org/pypi/multiprocessing>`_ package if you run Python 2.5.
+``imposm.parser`` runs with Python 2.5, 2.6 and 2.7 and is tested on Linux and Mac OS X.
 
 The PBF parser is written as a C extension and you need to have a C/C++ compiler, the Python libraries and Google Protobuf.
 
