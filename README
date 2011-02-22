@@ -1,6 +1,6 @@
 .. # -*- restructuredtext -*-
 
-imposm.parser – OpenStreetMap XML/PBF parser for Python
+imposm.parser - OpenStreetMap XML/PBF parser for Python
 =======================================================
 
 ``imposm.parser`` is a Python library that parses OpenStreetMap data in `XML <http://wiki.openstreetmap.org/wiki/.osm>`_ and `PBF <http://wiki.openstreetmap.org/wiki/PBF_Format>`_ format.
@@ -11,6 +11,7 @@ It is developed and supported by `Omniscale <http://omniscale.com>`_ and release
 
 Example
 -------
+
 Here is an example that parses an OSM file and counts all ways that are tagged as a highway.
 ::
 
