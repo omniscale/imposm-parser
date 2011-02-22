@@ -32,13 +32,15 @@ setup(
     name='imposm.parser',
     version="1.0.0",
     description='Fast and easy OpenStreetMap XML/PBF parser.',
-    long_description=open('README').read(),
+    long_description=open('README').read().decode('utf8'),
     author='Oliver Tonnhofer',
     author_email='olt@omniscale.de',
-    url='http://dev.omniscale.net/imposm_parser/',
+    url='http://dev.omniscale.net/imposm.parser/',
     license='Apache Software License 2.0',
     packages=find_packages(),
     namespace_packages = ['imposm'],
+    include_package_data=True,
+    package_data = {'': ['*.xml', '*.osm', '*.osm.bz2']},
     classifiers=[
         "Development Status :: 4 - Beta",
         "License :: OSI Approved :: Apache Software License",
@@ -48,7 +50,7 @@ setup(
         "Programming Language :: Python :: 2.5",
         "Programming Language :: Python :: 2.6",
         "Programming Language :: Python :: 2.7",
-        "Topic :: Software Development :: Libraries"
+        "Topic :: Software Development :: Libraries",
         "Topic :: Scientific/Engineering :: GIS",
     ],
     ext_modules=[
