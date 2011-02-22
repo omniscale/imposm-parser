@@ -34,3 +34,9 @@ Here is an example that parses an OSM file and counts all ways that are tagged a
   
   # done
   print counter.highways
+
+
+Source and issue tracker
+------------------------
+
+Source code and issue tracker are available at `<https://bitbucket.org/olt/imposm.parser/src>`_.
