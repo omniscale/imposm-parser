@@ -1,5 +1,3 @@
-imposm.parser – OpenStreetMap XML/PBF parser for Python
-=======================================================
 
 .. include:: ../../README
 
