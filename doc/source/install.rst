@@ -10,7 +10,7 @@ The PBF parser is written as a C extension and you need to have a C/C++ compiler
 
 On Ubuntu::
 
-  sudo aptitude install build-essential python-devel protobuf-compiler
+  sudo aptitude install build-essential python-devel protobuf-compiler libprotobuf-dev
 
 Installation
 ------------
