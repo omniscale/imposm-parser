@@ -38,7 +38,7 @@ setup(
     name='imposm.parser',
     version="1.0.0",
     description='Fast and easy OpenStreetMap XML/PBF parser.',
-    long_description=open('README').read(),
+    long_description=open('README').read() + open('CHANGES').read(),
     author='Oliver Tonnhofer',
     author_email='olt@omniscale.de',
     url='http://dev.omniscale.net/imposm.parser/',

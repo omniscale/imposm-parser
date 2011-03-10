@@ -1,0 +1,14 @@
+Changelog
+---------
+
+1.0.1 2011-03-10
+~~~~~~~~~~~~~~~~
+
+- improved regexp based XML coord parser
+- prevent mmap overflow in XMLChunker without coord_callback
+- successfully parsed whole planet.osm
+
+1.0.0 2011-02-22
+~~~~~~~~~~~~~~~~
+
+- first release
