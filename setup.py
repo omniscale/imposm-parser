@@ -36,7 +36,7 @@ if platform.python_version_tuple() < ('2', '6'):
 
 setup(
     name='imposm.parser',
-    version="1.0.0",
+    version="1.0.1",
     description='Fast and easy OpenStreetMap XML/PBF parser.',
     long_description=open('README').read() + open('CHANGES').read(),
     author='Oliver Tonnhofer',
