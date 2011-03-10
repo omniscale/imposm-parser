@@ -1,4 +1,7 @@
 include MANIFEST.in
+include README
+include CHANGES
+include LICENSE
 include setup.py
 include osm.proto
 
