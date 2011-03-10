@@ -205,8 +205,8 @@ class XMLChunker(object):
         coord_node_match = None
         xml_nodes = self._new_xml_outstream()
         coords = []
-        coord_node_re_match = re.compile(r'^\s*<node id="(\d+)" .* lat="([-0-9.]+)" '
-                                          'lon="([-0-9.]+)".*/>$').match
+        coord_node_re_match = re.compile(r'^\s*<node id="(\d+)" .*lat="([-0-9.]+)" '
+                                          'lon="([-0-9.]+)".*/>').match
         xml_nodes.write(self._last_line)
         split = False
         line = ''
