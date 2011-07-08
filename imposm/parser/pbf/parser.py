@@ -309,7 +309,7 @@ class PBFFile(object):
         self.check_features()
     
     def check_features(self):
-        missing_features = SUPPORTED_FEATURES.difference(self.header.required_features())
+        missing_features = self.header.required_features().difference(SUPPORTED_FEATURES)
         if missing_features:
             raise NotImplementedError(
                 '%s requires features not implemented by this parser: %s' %
