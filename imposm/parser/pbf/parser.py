@@ -153,7 +153,7 @@ class PrimitiveBlockParser(object):
     """
     def __init__(self, filename, blob_pos, blob_size):
         self.pos = filename, blob_pos, blob_size
-        data = read_blob_zlib_data(filename, blob_pos, blob_size)
+        data = read_blob_data(filename, blob_pos, blob_size)
         self.primitive_block = OSMPBF.PrimitiveBlock()
         self.primitive_block.ParseFromString(data)
         self.primitivegroup = self.primitive_block.primitivegroup
@@ -269,7 +269,7 @@ class PrimitiveBlockParser(object):
                     
 class PBFHeader(object):
     def __init__(self, filename, blob_pos, blob_size):
-        data = read_blob_zlib_data(filename, blob_pos, blob_size)
+        data = read_blob_data(filename, blob_pos, blob_size)
         self.header_block = OSMPBF.HeaderBlock()
         self.header_block.ParseFromString(data)
         
@@ -277,9 +277,9 @@ class PBFHeader(object):
         return set(self.header_block.required_features)
 
 
-def read_blob_zlib_data(filename, blob_pos, blob_size):
+def read_blob_data(filename, blob_pos, blob_size):
     """
-    Returns the unzipped blob data from.
+    Returns the (unzipped) blob data from filename and position.
     """
     with open(filename, 'rb') as f:
         f.seek(blob_pos)
@@ -287,6 +287,9 @@ def read_blob_zlib_data(filename, blob_pos, blob_size):
         
     blob = OSMPBF.Blob()
     blob.ParseFromString(blob_data)
+    raw_data = blob.raw
+    if raw_data:
+        return raw_data
     return zlib.decompress(blob.zlib_data)
 
 import time
