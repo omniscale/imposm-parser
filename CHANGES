@@ -1,6 +1,12 @@
 Changelog
 ---------
 
+1.0.3 2011-07-21
+~~~~~~~~~~~~~~~~
+
+- support for uncompressed PBF
+- bug fix for PBF without dense nodes
+
 1.0.2 2011-03-10
 ~~~~~~~~~~~~~~~~
 
