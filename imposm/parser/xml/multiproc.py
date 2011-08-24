@@ -207,6 +207,7 @@ class XMLChunker(object):
         coords = []
         coord_node_re_match = re.compile(r'^\s*<node id="(\d+)" .*lat="([-0-9.]+)" '
                                           'lon="([-0-9.]+)".*/>').match
+        node_re_match = re.compile(r'^\s*<node .*/>').match
         xml_nodes.write(self._last_line)
         split = False
         line = ''
@@ -226,7 +227,7 @@ class XMLChunker(object):
             if split:
                 if (line.lstrip().startswith('</')
                     or (coords_callback and coord_node_match)
-                    or (not coords_callback and coord_node_re_match(line))):
+                    or (not coords_callback and node_re_match(line))):
                     mmaps_queue.put(self._finished_xml_outstream(line, xml_nodes))
                     xml_nodes = self._new_xml_outstream()
                     split = False
