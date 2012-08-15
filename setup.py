@@ -31,7 +31,7 @@ class build_ext_with_protpbuf(build_ext):
 
 
 install_requires = []
-if platform.python_version_tuple() < ('2', '6'):
+if tuple(map(str, platform.python_version_tuple())) < ('2', '6'):
     install_requires.append('multiprocessing>=2.6')
 
 setup(
