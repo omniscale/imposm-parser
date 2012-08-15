@@ -53,11 +53,11 @@ class MMapReader(object):
 
 class XMLParserProcess(XMLParser, multiprocessing.Process):
     def __init__(self, mmap_pool, mmap_queue, *args, **kw):
+        multiprocessing.Process.__init__(self)
+        XMLParser.__init__(self, *args, **kw)
+        self.daemon = True
         self.mmap_pool = mmap_pool
         self.mmap_queue = mmap_queue
-        XMLParser.__init__(self, *args, **kw)
-        multiprocessing.Process.__init__(self)
-        self.daemon = True
 
     def run(self):
         setproctitle('imposm xml parser')
