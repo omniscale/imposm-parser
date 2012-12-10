@@ -18,7 +18,7 @@ Here is an example that parses an OSM file and counts all ways that are tagged a
   # simple class that handles the parsed OSM data.
   class HighwayCounter(object):
       highways = 0
-    
+
       def ways(self, ways):
           # callback method for ways
           for osmid, tags, refs in ways:
@@ -29,7 +29,7 @@ Here is an example that parses an OSM file and counts all ways that are tagged a
   counter = HighwayCounter()
   p = OSMParser(concurrency=4, ways_callback=counter.ways)
   p.parse('germany.osm.pbf')
-  
+
   # done
   print counter.highways
 
@@ -37,5 +37,5 @@ Here is an example that parses an OSM file and counts all ways that are tagged a
 Source and issue tracker
 ------------------------
 
-Source code and issue tracker are available at `<https://bitbucket.org/olt/imposm.parser/src>`_.
+Source code and issue tracker are available at `<https://github.com/omniscale/imposm-parser>`_.
 
