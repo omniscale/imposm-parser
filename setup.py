@@ -41,7 +41,7 @@ setup(
     long_description=open('README.rst').read() + open('CHANGES').read(),
     author='Oliver Tonnhofer',
     author_email='olt@omniscale.de',
-    url='http://dev.omniscale.net/imposm.parser/',
+    url='http://imposm.org/docs/imposm.parser/latest/',
     license='Apache Software License 2.0',
     packages=find_packages(),
     namespace_packages = ['imposm'],
