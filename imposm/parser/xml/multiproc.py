@@ -225,7 +225,7 @@ class XMLChunker(object):
             else:
                 xml_nodes.write(line)
             if split:
-                if (line.lstrip().startswith('</')
+                if (line.rstrip().endswith(('</way>', '</node>', '</relation>'))
                     or (coords_callback and coord_node_match)
                     or (not coords_callback and node_re_match(line))):
                     mmaps_queue.put(self._finished_xml_outstream(line, xml_nodes))
