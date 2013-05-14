@@ -192,7 +192,7 @@ class PrimitiveBlockParser(object):
         for group in self.primitivegroup:
             dense = group.dense
             if dense:
-                granularity = self.primitive_block.granularity
+                granularity = self.primitive_block.granularity or 100
                 lat_offset = self.primitive_block.lat_offset or 0
                 lon_offset = self.primitive_block.lon_offset or 0
                 coord_scale = 0.000000001
