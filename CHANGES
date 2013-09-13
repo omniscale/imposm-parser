@@ -1,6 +1,12 @@
 Changelog
 ---------
 
+1.0.5 2013-09-13
+~~~~~~~~~~~~~~~~
+
+- support PBF without granularity value
+- improved support for non-pretty-printed XML
+
 1.0.4 2012-12-10
 ~~~~~~~~~~~~~~~~
 
