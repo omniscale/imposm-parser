@@ -89,9 +89,8 @@ fastpb_convert14(int value)
   static void
   Blob_dealloc(Blob* self)
   {
-      self->ob_type->tp_free((PyObject*)self);
-
       delete self->protobuf;
+      self->ob_type->tp_free((PyObject*)self);
   }
 
   static PyObject *
@@ -545,9 +544,8 @@ fastpb_convert14(int value)
   static void
   BlobHeader_dealloc(BlobHeader* self)
   {
-      self->ob_type->tp_free((PyObject*)self);
-
       delete self->protobuf;
+      self->ob_type->tp_free((PyObject*)self);
   }
 
   static PyObject *
@@ -877,9 +875,8 @@ fastpb_convert14(int value)
   static void
   HeaderBBox_dealloc(HeaderBBox* self)
   {
-      self->ob_type->tp_free((PyObject*)self);
-
       delete self->protobuf;
+      self->ob_type->tp_free((PyObject*)self);
   }
 
   static PyObject *
@@ -1286,9 +1283,8 @@ fastpb_convert14(int value)
   static void
   HeaderBlock_dealloc(HeaderBlock* self)
   {
-      self->ob_type->tp_free((PyObject*)self);
-
       delete self->protobuf;
+      self->ob_type->tp_free((PyObject*)self);
   }
 
   static PyObject *
@@ -1787,9 +1783,8 @@ fastpb_convert14(int value)
   static void
   StringTable_dealloc(StringTable* self)
   {
-      self->ob_type->tp_free((PyObject*)self);
-
       delete self->protobuf;
+      self->ob_type->tp_free((PyObject*)self);
   }
 
   static PyObject *
@@ -1997,9 +1992,8 @@ fastpb_convert14(int value)
   static void
   Info_dealloc(Info* self)
   {
-      self->ob_type->tp_free((PyObject*)self);
-
       delete self->protobuf;
+      self->ob_type->tp_free((PyObject*)self);
   }
 
   static PyObject *
@@ -2471,9 +2465,8 @@ fastpb_convert14(int value)
   static void
   DenseInfo_dealloc(DenseInfo* self)
   {
-      self->ob_type->tp_free((PyObject*)self);
-
       delete self->protobuf;
+      self->ob_type->tp_free((PyObject*)self);
   }
 
   static PyObject *
@@ -3008,9 +3001,8 @@ fastpb_convert14(int value)
   static void
   ChangeSet_dealloc(ChangeSet* self)
   {
-      self->ob_type->tp_free((PyObject*)self);
-
       delete self->protobuf;
+      self->ob_type->tp_free((PyObject*)self);
   }
 
   static PyObject *
@@ -3210,9 +3202,8 @@ fastpb_convert14(int value)
   static void
   Node_dealloc(Node* self)
   {
-      self->ob_type->tp_free((PyObject*)self);
-
       delete self->protobuf;
+      self->ob_type->tp_free((PyObject*)self);
   }
 
   static PyObject *
@@ -3784,9 +3775,8 @@ fastpb_convert14(int value)
   static void
   DenseNodes_dealloc(DenseNodes* self)
   {
-      self->ob_type->tp_free((PyObject*)self);
-
       delete self->protobuf;
+      self->ob_type->tp_free((PyObject*)self);
   }
 
   static PyObject *
@@ -4313,9 +4303,8 @@ fastpb_convert14(int value)
   static void
   Way_dealloc(Way* self)
   {
-      self->ob_type->tp_free((PyObject*)self);
-
       delete self->protobuf;
+      self->ob_type->tp_free((PyObject*)self);
   }
 
   static PyObject *
@@ -4831,9 +4820,8 @@ fastpb_convert14(int value)
   static void
   Relation_dealloc(Relation* self)
   {
-      self->ob_type->tp_free((PyObject*)self);
-
       delete self->protobuf;
+      self->ob_type->tp_free((PyObject*)self);
   }
 
   static PyObject *
@@ -5510,9 +5498,8 @@ fastpb_convert14(int value)
   static void
   PrimitiveGroup_dealloc(PrimitiveGroup* self)
   {
-      self->ob_type->tp_free((PyObject*)self);
-
       delete self->protobuf;
+      self->ob_type->tp_free((PyObject*)self);
   }
 
   static PyObject *
@@ -6045,9 +6032,8 @@ fastpb_convert14(int value)
   static void
   PrimitiveBlock_dealloc(PrimitiveBlock* self)
   {
-      self->ob_type->tp_free((PyObject*)self);
-
       delete self->protobuf;
+      self->ob_type->tp_free((PyObject*)self);
   }
 
   static PyObject *
