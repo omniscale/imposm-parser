@@ -1,6 +1,11 @@
 Changelog
 ---------
 
+1.0.6 2014-10-31
+~~~~~~~~~~~~~~~~
+
+- fixed bug in protobuf parser that could cause segfaults
+
 1.0.5 2013-09-13
 ~~~~~~~~~~~~~~~~
 
